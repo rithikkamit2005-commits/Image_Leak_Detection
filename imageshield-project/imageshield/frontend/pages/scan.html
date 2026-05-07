@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Scan Your Photo — ImageShield</title>
+  <link rel="stylesheet" href="../css/style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="../index.html" class="nav-logo">🛡️ ImageShield</a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="scan.html">Scan Now</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+    <a href="scan.html" class="btn-nav">Scan Now →</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="scan-hero">
+    <div class="hero-badge">🔍 Secure Image Scanner</div>
+    <h1>Scan Your <span class="gradient-text">Photo Now</span></h1>
+    <p>Upload your photo below. We'll check the entire internet and generate a full report in under 30 seconds.</p>
+  </section>
+
+  <!-- UPLOAD SECTION -->
+  <div class="scan-main" id="upload-section">
+    <!-- Upload Zone -->
+    <div class="upload-zone" id="upload-zone">
+      <input type="file" id="file-input" accept="image/*" />
+      <span class="upload-icon">📸</span>
+      <h3>Drop your photo here</h3>
+      <p>or click anywhere to browse files</p>
+      <p class="supported">Supports: JPG, PNG, WEBP, HEIC — Max 10MB</p>
+    </div>
+
+    <!-- Preview (hidden until image selected) -->
+    <div id="preview-area" style="display:none; margin-top:20px; background:white; border:1px solid #E2E8F0; border-radius:16px; padding:20px; display:none; align-items:center; gap:20px;">
+      <img id="preview-img" src="" alt="Preview" />
+      <div class="preview-info">
+        <h4 id="file-name">photo.jpg</h4>
+        <p id="file-size">2.4 MB</p>
+      </div>
+      <button class="remove-btn" onclick="removeImage()">✕ Remove</button>
+    </div>
+
+    <!-- Scan Options -->
+    <div class="scan-options" style="margin-top:20px;">
+      <h3>⚙️ Scan Options</h3>
+
+      <div class="option-row">
+        <div>
+          <div class="option-label">🌐 Google Image Search</div>
+          <div class="option-desc">Search Google for your photo across the web</div>
+        </div>
+        <label class="toggle">
+          <input type="checkbox" id="opt-google" checked>
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div class="option-row">
+        <div>
+          <div class="option-label">🔍 TinEye Reverse Search</div>
+          <div class="option-desc">Find exact and near-duplicate copies of your image</div>
+        </div>
+        <label class="toggle">
+          <input type="checkbox" id="opt-tineye" checked>
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div class="option-row">
+        <div>
+          <div class="option-label">🧬 Morph Detection (AI Hash)</div>
+          <div class="option-desc">Detect edited, cropped, or face-swapped versions</div>
+        </div>
+        <label class="toggle">
+          <input type="checkbox" id="opt-morph" checked>
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div class="option-row">
+        <div>
+          <div class="option-label">📱 Social Media Platforms</div>
+          <div class="option-desc">Check Facebook, Instagram, Twitter/X, and Reddit</div>
+        </div>
+        <label class="toggle">
+          <input type="checkbox" id="opt-social" checked>
+          <span class="slider"></span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Privacy Note -->
+    <div class="privacy-note">
+      🔒 Your photo is encrypted during scan and <strong>deleted immediately after</strong>. We never store your images.
+    </div>
+
+    <!-- Scan Button -->
+    <div class="scan-btn-wrap">
+      <button id="scan-btn" disabled onclick="startScan()">
+        📤 Upload a photo to begin scan
+      </button>
+    </div>
+  </div>
+
+  <!-- PROGRESS SECTION (hidden until scan starts) -->
+  <div class="progress-section" id="progress-section">
+    <div class="progress-card">
+      <h2>🔍 Scanning the Internet...</h2>
+      <p class="scan-status" id="status-text">Preparing your image for analysis...</p>
+
+      <div class="progress-bar-wrap">
+        <div class="progress-bar-fill" id="progress-bar"></div>
+      </div>
+
+      <div class="scan-steps">
+        <div class="scan-step" id="step-hash">
+          <span>🧬</span>
+          <span>Generating image fingerprint (hash)</span>
+          <span class="step-status">⏳</span>
+        </div>
+        <div class="scan-step" id="step-google">
+          <span>🌐</span>
+          <span>Searching Google Images</span>
+          <span class="step-status">⏳</span>
+        </div>
+        <div class="scan-step" id="step-tineye">
+          <span>🔍</span>
+          <span>Running TinEye reverse search</span>
+          <span class="step-status">⏳</span>
+        </div>
+        <div class="scan-step" id="step-social">
+          <span>📱</span>
+          <span>Checking social media platforms</span>
+          <span class="step-status">⏳</span>
+        </div>
+        <div class="scan-step" id="step-morph">
+          <span>🤖</span>
+          <span>Analyzing for morphed/edited copies</span>
+          <span class="step-status">⏳</span>
+        </div>
+        <div class="scan-step" id="step-report">
+          <span>📋</span>
+          <span>Compiling results report</span>
+          <span class="step-status">⏳</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/scan.js"></script>
+</body>
+</html>

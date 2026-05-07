@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Scan Results — ImageShield</title>
+  <link rel="stylesheet" href="../css/style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="../index.html" class="nav-logo">🛡️ ImageShield</a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="scan.html">Scan Again</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+    <a href="scan.html" class="btn-nav">New Scan →</a>
+  </nav>
+
+  <!-- Results Hero -->
+  <section class="results-hero" id="results-hero">
+    <div class="hero-badge" id="result-badge">⚠️ Scan Complete</div>
+    <h1 id="results-title">Scan Results</h1>
+    <p id="results-subtitle" style="color:#64748B;font-size:16px;margin-top:8px;">Scanned on <span id="scan-date"></span></p>
+  </section>
+
+  <div class="results-main">
+
+    <!-- Alert Banner -->
+    <div class="alert-banner" id="alert-banner">
+      <span class="alert-icon" id="alert-icon">⚠️</span>
+      <div>
+        <div class="alert-title" id="alert-title">Unauthorized copies found</div>
+        <div class="alert-desc" id="alert-desc">Your photo was found on multiple websites without your consent. We recommend filing a cybercrime complaint immediately.</div>
+      </div>
+    </div>
+
+    <!-- Summary Stats -->
+    <div class="results-grid">
+      <div class="result-stat">
+        <div class="rs-num danger" id="stat-found">0</div>
+        <div class="rs-label">Locations Found</div>
+      </div>
+      <div class="result-stat">
+        <div class="rs-num warn" id="stat-platforms">0</div>
+        <div class="rs-label">Platforms Detected</div>
+      </div>
+      <div class="result-stat">
+        <div class="rs-num warn" id="stat-morph">0</div>
+        <div class="rs-label">Morphed Copies</div>
+      </div>
+      <div class="result-stat">
+        <div class="rs-num safe" id="stat-score">—</div>
+        <div class="rs-label">Risk Level</div>
+      </div>
+    </div>
+
+    <!-- Image Fingerprint -->
+    <div class="hash-card">
+      <div class="hash-title">🔑 IMAGE FINGERPRINT (HASH VALUES)</div>
+      <div class="hash-row">
+        <span class="hash-key">MD5:</span>
+        <span class="hash-val" id="hash-md5">—</span>
+      </div>
+      <div class="hash-row">
+        <span class="hash-key">SHA-256:</span>
+        <span class="hash-val" id="hash-sha256">—</span>
+      </div>
+      <div class="hash-row">
+        <span class="hash-key">pHash:</span>
+        <span class="hash-val" id="hash-phash">—</span>
+      </div>
+      <div class="hash-row" style="margin-top:10px;font-size:11px;color:#475569;">
+        These values are unique to your photo and serve as legal evidence.
+      </div>
+    </div>
+
+    <!-- Findings -->
+    <div class="findings-card" id="findings-section">
+      <div class="findings-header">
+        🔎 Locations Where Your Photo Was Found
+      </div>
+      <div class="findings-body" id="findings-list">
+        <!-- populated by JS -->
+      </div>
+    </div>
+
+    <!-- Morph Analysis -->
+    <div class="findings-card" id="morph-section">
+      <div class="findings-header">
+        🧬 Morph / Edit Detection Analysis
+      </div>
+      <div class="findings-body" id="morph-list">
+        <!-- populated by JS -->
+      </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div style="background:white;border:1px solid #E2E8F0;border-radius:16px;padding:28px;margin-top:8px;">
+      <h3 style="font-size:17px;font-weight:700;margin-bottom:6px;">📨 What Do You Want to Do?</h3>
+      <p style="font-size:14px;color:#64748B;margin-bottom:20px;">Based on these findings, we recommend filing a cybercrime complaint immediately.</p>
+      <div class="action-btns">
+        <a href="complaint.html" class="btn-danger" id="complaint-link">📋 File Cybercrime Complaint</a>
+        <button class="btn-secondary" onclick="downloadReport()">⬇ Download PDF Report</button>
+        <a href="scan.html" class="btn-secondary">🔄 Scan Another Photo</a>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="../js/results.js"></script>
+</body>
+</html>
