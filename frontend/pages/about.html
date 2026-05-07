@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About — ImageShield</title>
+  <link rel="stylesheet" href="../css/style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="../index.html" class="nav-logo">🛡️ ImageShield</a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="scan.html">Scan Now</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+    <a href="scan.html" class="btn-nav">Protect My Photo →</a>
+  </nav>
+
+  <section class="about-hero">
+    <div class="hero-badge">📖 About This Project</div>
+    <h1>Why <span class="gradient-text">ImageShield</span> Exists</h1>
+    <p>Built to fight the growing epidemic of non-consensual image sharing — one scan at a time.</p>
+  </section>
+
+  <div class="about-main">
+
+    <div class="about-block">
+      <h2>🔴 The Problem</h2>
+      <p>The proliferation of digital platforms has led to unprecedented levels of non-consensual image sharing, particularly affecting women and children. Studies indicate that <strong>1 in 8 social media users</strong> have experienced image-based sexual abuse, with <strong>90% of victims being women</strong>.</p>
+      <p>This form of cybercrime extends beyond privacy violations, causing severe psychological trauma, reputation damage, and, in extreme cases, leading to self-harm. The anonymity of digital spaces makes it harder for perpetrators to be identified and prosecuted.</p>
+    </div>
+
+    <div class="about-block">
+      <h2>🛡️ Our Solution</h2>
+      <p><strong>ImageShield</strong> is a free, privacy-first web tool that empowers victims to take action. It performs an automated internet-wide scan for your photo, detects morphed or edited versions using AI hashing, and automatically generates a legal cybercrime complaint — ready to send with one click.</p>
+      <p>No technical expertise required. No cost. No data stored. Just protection.</p>
+    </div>
+
+    <div class="about-block">
+      <h2>⚙️ How the Technology Works</h2>
+      <p><strong>Image Hashing:</strong> When you upload a photo, we generate three types of fingerprints — MD5 (exact match), SHA-256 (cryptographic proof), and pHash (perceptual hash that detects visually similar versions even if cropped or colour-changed).</p>
+      <p><strong>Reverse Image Search:</strong> We simultaneously query Google Vision API, TinEye, and SerpAPI to find every place your image appears online. Results are filtered and ranked by confidence score.</p>
+      <p><strong>Morph Detection:</strong> Using perceptual hashing with a Hamming distance algorithm, we detect images that are visually similar but not identical — catching edited, face-swapped, or morphed versions.</p>
+      <p><strong>Automated Complaint:</strong> All scan evidence is compiled into a legal complaint format and sent via secure SMTP to the selected government authorities.</p>
+    </div>
+
+    <div class="about-block">
+      <h2>🔧 Technology Stack</h2>
+      <div class="tech-chips">
+        <span class="chip">Python 3.11</span>
+        <span class="chip">Flask (Backend)</span>
+        <span class="chip">HTML5 / CSS3</span>
+        <span class="chip">JavaScript (ES6)</span>
+        <span class="chip">Google Vision API</span>
+        <span class="chip">TinEye API</span>
+        <span class="chip">SerpAPI</span>
+        <span class="chip">imagehash (pHash)</span>
+        <span class="chip">Pillow</span>
+        <span class="chip">ReportLab (PDF)</span>
+        <span class="chip">smtplib (Email)</span>
+        <span class="chip">Render.com (Hosting)</span>
+      </div>
+    </div>
+
+    <div class="about-block">
+      <h2>📚 Research References</h2>
+      <ul class="refs-list">
+        <li>
+          <strong>A Survey on Reverse Image Search and Image Retrieval</strong><br>
+          IEEE Xplore — <a href="https://ieeexplore.ieee.org/document/8480993" target="_blank">ieeexplore.ieee.org/document/8480993</a>
+        </li>
+        <li>
+          <strong>Image-based Sexual Abuse: A Global Overview</strong><br>
+          Prof. Clare McGlynn — <a href="https://www.researchgate.net/publication/337360191_Image-Based_Sexual_Abuse_A_Global_Overview" target="_blank">ResearchGate</a>
+        </li>
+        <li>
+          <strong>Image Detection Using CNN and TensorFlow</strong><br>
+          IEEE Xplore — <a href="https://ieeexplore.ieee.org/document/8597204" target="_blank">ieeexplore.ieee.org/document/8597204</a>
+        </li>
+        <li>
+          <strong>Detection of AI-Created Images Using Pixel-Wise Feature Extraction and CNNs</strong><br>
+          PMC / NCBI — <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10674908/" target="_blank">pmc.ncbi.nlm.nih.gov/articles/PMC10674908</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="about-block">
+      <h2>⚖️ Legal Framework (India)</h2>
+      <p>ImageShield complaint submissions reference the following Indian laws:</p>
+      <ul style="font-size:15px;color:#64748B;line-height:2;padding-left:20px;">
+        <li><strong>Section 66E ITA 2000</strong> — Violation of privacy through image capture/transmission</li>
+        <li><strong>Section 67 / 67A ITA 2000</strong> — Publishing obscene material electronically</li>
+        <li><strong>Section 354C IPC</strong> — Voyeurism</li>
+        <li><strong>Section 509 IPC</strong> — Word, gesture or act intended to insult the modesty of a woman</li>
+        <li><strong>POCSO Act 2012</strong> — If the victim is a minor</li>
+      </ul>
+    </div>
+
+    <div style="text-align:center;margin-top:40px;">
+      <a href="scan.html" class="btn-primary btn-large">🛡️ Start Your Free Scan</a>
+    </div>
+
+  </div>
+
+  <footer class="footer" style="margin-top:60px;">
+    <div class="footer-logo">🛡️ ImageShield</div>
+    <p>Not affiliated with any government body. Built as an open-source cyber safety project.</p>
+    <p style="margin-top:8px;font-size:12px;opacity:0.5;">For emergencies, contact National Cybercrime Helpline: 1930</p>
+  </footer>
+
+</body>
+</html>
